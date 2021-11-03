@@ -1,0 +1,309 @@
+
+.actions_divider {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: underline;
+}
+
+body {
+    background-color: black !important;
+    background-image: url("../images//background.png");
+    background-repeat: no-repeat;
+}
+
+.active_area__layer {
+    display: none;
+    padding: 15px;
+}
+
+#battle_results {
+    background-color: rgba(255, 255, 255, .8);
+    border-radius: 5px;
+    height: 450px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+#build_character_layer__header {
+    color: rgba(255, 255, 255, .8);
+    font-weight: bold;
+    font-size: 2.5em;;
+}
+
+#build_character_layer__characters {
+    padding: 5px;
+}
+
+.character_card {
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgb(0, 0, 0);
+    color: black;
+    display: inline-block;
+    font-size: 1.2em;
+    margin: 5px;
+    position: relative;
+    width: 200px !important;
+    padding: 3px;
+}
+
+.character_card__name {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;;
+}
+
+.character_card__gold {
+    background-image: url("../images/gold.png");
+    background-size: contain;
+    bottom: -15px;
+    color: rgb(5, 5, 5);
+    display: inline-block;
+    font-weight: bold;
+    font-size: 1.2em;
+    height: 40px;
+    left: -15px;
+    padding-top: 10px;
+    position: absolute;
+    text-align: center;
+    width: 40px;
+}
+
+.character_card__strength {
+    background-color: rgb(78, 132, 214);
+    border: 1px solid rgb(235, 156, 11);
+    border-radius: 25px;
+    bottom: -15px;
+    color: rgb(250, 250, 250);
+    display: inline-block;
+    font-weight: bold;
+    font-size: 1.2em;
+    height: 40px;
+    right: -15px;
+    padding: 3px;
+    position: absolute;
+    text-align: center;
+    width: 40px;
+}
+
+.character_card img {
+    background-color: rgba(221, 126, 208, 0.6);
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 150px;
+}
+
+.character_card__stats {
+    text-align: center;
+}
+
+.character_card--active:hover {
+    background-color: rgba(111, 192, 230, 0.9);
+    border-color: rgb(196, 23, 23);
+    cursor: pointer;
+}
+
+.character_card--selected {
+    background-color: rgb(166, 218, 171);
+}
+
+.character_selector__character {
+    text-align: center;
+}
+
+#game_header {
+    background-color: rgba(0, 0, 0, .6);
+    border-radius: 5px;
+    color: rgba(184, 69, 84, 1);
+    font-size: 3em;
+    font-weight: bold;
+    margin-top: 5px;
+    padding: 3px 0;
+    text-align: center;
+}
+
+#game_title {
+    background-color: firebrick;
+    border-bottom: 1px solid black;
+    color:goldenrod;
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 5px;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.item_selector img {
+    width: 100%;
+}
+
+.item_selector__inner {
+    border: 2px solid rgb(100, 100, 100);
+    background-color: rgba(30, 109, 155, 0.6);
+    border-radius: 5px;
+    color: rgba(255, 255, 255, .8);
+    display: inline-block;
+    margin: 3px !important;
+}
+
+.item_selector__inner--inactive {
+    border: 2px solid rgba(0, 0, 0, .3);
+}
+
+.item_selector__inner--active:hover {
+    /*border: 2px solid rgba(15, 160, 15, 0.8);*/
+    background-color: rgba(21, 129, 21, 0.6);
+    cursor: pointer;
+}
+
+.item_selector__inner--selected {
+    border: 2px solid rgba(95, 117, 216, 0.8);
+}
+
+.item_selector__inner--disabled {
+    opacity: .5;
+}
+
+#map {
+    width: 700px !important;
+    height: 700px;
+    padding: 0px !important;
+    border-radius: 5px;
+}
+
+#map_actions {
+    max-height: 450px;
+    overflow: auto;
+}
+
+.map_square {
+    background-image: url("../images/map_background.png");
+    display: inline-block;
+    height: 73px;
+    padding: 5px !important;
+    width: 73px !important;
+}
+
+.map_square__inner {
+    background-color: rgb(237, 235, 240);
+    border-radius: 5px;
+    border: 2px solid rgba(0, 0, 0, 0);
+    height: 100%;
+}
+
+.map_square__home {
+    background-color: rgba(105, 219, 77, 0.8);
+}
+
+.map_square__home:hover, .map_square__active_square:hover {
+    border: 2px solid rgba(37, 0, 200, 0.8);
+    cursor: pointer;
+}
+
+.map_square__grid_square {
+    display: inline-block;
+    height:50%;
+    padding: 0px !important;
+    width: 50% !important;
+}
+
+.map_square img {
+    width: 85%;
+}
+
+.option_selector__row {
+    display: inline-block;
+}
+
+.option_selector__row_img {
+    background-color: rgba(255, 255, 255, .8);
+    border-radius: 5px;
+    padding-right: .1em !important;
+    padding-left: .1em !important;
+}
+
+.option_selector__row img {
+    width: 100%;
+}
+
+.option_selector__row_name {
+    font-weight: bold;
+    text-align: center;
+}
+
+.option_selector__row_stats {
+    font-size: .8em;
+    text-align:center;
+}
+
+.option_selector__row_buttons {
+    font-size: .6em;
+    text-align:center;
+}
+
+#player_inventory_list {
+    height: 90px;
+    border-top: 1px solid rgba(0, 0, 0, .8);
+    overflow: auto;
+    white-space: nowrap;
+    overflow-y: hidden;
+}
+
+.player_inventory_list__item {
+    display: inline-block;
+    height: 75px;
+    width: 75px;
+    margin-top: 3px;
+    padding: 2px;
+}
+
+.player_inventory_list__item img {
+    height: 45px;
+}
+
+.player_inventory_list__item_inner {
+    margin: 2px;
+    border: 1px solid rgba(0, 0, 0, 1);
+}
+#shopping_layer__welcome {
+    color: rgb(250, 250, 250);
+    font-size: 2.5em;
+    font-weight: bold;
+    text-align: center;
+}
+.shopping_layer__item_description img {
+    width: 100%;
+}
+
+.shopping_layer__item_description div {
+    text-align: center;;
+}
+
+.shopping_layer__item_count {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: .8;
+    font-weight: bold;
+    color: green;
+}
+
+.shopping_layer__item_count--hidden {
+    display: none;
+}
+
+#weapons_selector__inner {
+    max-height: 450px;
+}
+
+.weapons_selector__chosen_weapon {
+    text-align: center;
+    min-height: 100px;
+}
+
+.weapons_selector__header {
+    font-weight: bold;
+    font-size: 1.5em;
+    text-align: center;
+}

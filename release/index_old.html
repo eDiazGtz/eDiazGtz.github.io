@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Adventure</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+   
+    <script src="js/classes/game_master/Tools.js" ></script>
+    <script src="js/classes/stage/EventHandler.js" ></script>
+
+    <!-- stage components -->
+    <script src="js/classes/stage/StageComponent.js" ></script> <!-- needs to be before components -->
+    <script src="js/classes/stage/BattleComponent.js" ></script>
+    <script src="js/classes/stage/CharacterCardsComponent.js" ></script>
+    <script src="js/classes/stage/ItemSelectorComponent.js" ></script>
+    <script src="js/classes/stage/PlayerBuilderComponent.js" ></script>
+    <script src="js/classes/stage/StageShopComponent.js" ></script>
+    <script src="js/classes/stage/StageMapComponent.js" ></script>
+    <script src="js/classes/stage/StageMapSquareComponent.js" ></script>
+    <script src="js/classes/stage/StageMapActionsComponent.js" ></script>
+    <script src="js/classes/stage/StoryTellerComponent.js" ></script>
+
+
+    <script src="js/classes/game_master/map/Map.js"></script>
+    <script src="js/classes/game_master/map/MapSquare.js"></script>
+
+    <script src="js/classes/game_master/characters/Character.js"></script>
+
+    <script src="js/classes/game_master/characters/monsters/Monster.js"></script>
+    <script src="js/classes/game_master/characters/monsters/Deamon.js"></script>
+    <script src="js/classes/game_master/characters/monsters/Troll.js"></script>
+    <script src="js/classes/game_master/characters/monsters/Wraith.js"></script>
+
+    <script src="js/classes/game_master/characters/players/Player.js"></script>
+    <script src="js/classes/game_master/characters/players/Rogue.js"></script>
+    <script src="js/classes/game_master/characters/players/Warrior.js"></script>
+    <script src="js/classes/game_master/characters/players/Sorcerer.js"></script>
+    <script src="js/classes/game_master/characters/players/Barbarian.js"></script>
+
+    <script src="js/classes/game_master/shop/Shop.js" ></script>
+    <script src="js/classes/game_master/shop/ShopItem.js" ></script>
+    <script src="js/classes/game_master/shop/Inventory.js" ></script>
+
+    <script src="js/classes/game_master/shop/Food.js" ></script>
+
+    <script src="js/classes/game_master/shop/Weapon.js" ></script>
+
+    <script src="js/classes/game_master/shop/MagicalItem.js" ></script>
+
+    <!-- needs to load last and in this order -->
+    <script src="js/classes/game_master/GameMaster.js" ></script> 
+    <script src="js/classes/stage/stage.js" ></script>
+
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div id="center_screen" class="col-12">
+                <div id="game_header">Adventure Game</div>
+                <div class="row">
+                    <div id="waiting_area" class="col-12 game_area">
+                        <div class="row justify-content-center">
+                            <div class="col-12 text-center">
+                                <div id="build_character_layer__header">Build your Character</div>
+                            </div>
+                            <div class="col-7">
+                                <div class="row justify-content-center">
+                                    <div class="col-8 mt-2">
+                                        <input type="text" id="build_character_layer__player_name" class="form-control" placeholder="Character Name">
+                                    </div>
+                                    <div class="col-12 text-center mt-2">
+                                        <div id="build_character_layer__characters" class="row justify-content-center"></div>
+                                    </div>
+                                    <div class="col-4 text-center mt-2">
+                                        <button class="btn btn-success" id="purchase_supplies_btn">Purchase Supplies</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="active_area" class="col-12 game_area mt-3">
+                        <div class="row">
+                            <div id="character_cards" class="col-3 justify-content-center">
+                                <div id="character_cards__player" class="row character_cards__card justify-content-center">
+                                    <div class="character_card">
+                                        <div class="character_card__inner row">
+                                            <div class="col-12 text-center">
+                                                <img/>
+                                            </div>
+                                            <div class="col-12 mt-2">
+                                                <div class="character_card__name"></div>
+                                                <div class="character_card__stats"></div>
+                                            </div>
+                                        </div>
+                                        <div class="character_card__gold">
+                                            <div id="player_card__gold_value">0</div>
+                                        </div>
+                                        <div class="character_card__strength">
+                                            <div id="player_card__strength_value">44</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="character_cards__opponent" class="row character_cards__card justify-content-center mt-3">
+                                    <div class="character_card">
+                                        <div class="character_card__inner row">
+                                            <div class="col-12 text-center">
+                                                <img/>
+                                            </div>
+                                            <div class="col-12 mt-2">
+                                                <div class="character_card__name"></div>
+                                                <div class="character_card__stats"></div>
+                                            </div>
+                                        </div>
+                                        <div class="character_card__strength">
+                                            <div id="opponent_card__strength_value">44</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="layers" class="col-9">
+                                <div id="traveling_layer" class="active_area__layer row justify-content-center">
+                                    <div class="col-12">
+                                        <div class="row">
+                                            <div class="col-12 col-md-7">
+                                                <div id="map">
+                                                    <div id="map__inner" class="row">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-5">
+                                                <div id="map_actions" class="row justify-content-center"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="shopping_layer" class="active_area__layer row justify-content-center">
+                                    <div id="shopping_layer__welcome" class="col-12">
+                                        Welcome to the Shop!
+                                    </div>
+                                    <div class="col-12">
+                                        <div id="shopping_layer__item_selection" class="row">
+                                            <div class="col-9">
+                                                <div id="shopping_layer__items" class="row justify-content-center"></div>
+                                            </div>
+                                            <div class="col-12 text-center mt-2">
+                                                <button id="leave_shop_btn" class="btn btn-info">Leave Shop</button>
+                                            </div>
+                                        </div>
+                                        <div id="shopping_layer__transaction" class="row">
+                                            <div class="col-9">
+                                                <div id="shopping_layer__items" class="row justify-content-center"></div>
+                                            </div>
+                                            <div class="col-12 text-center mt-2">
+                                                <button id="leave_shop_btn" class="btn btn-info">Leave Shop</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="battle_layer" class="active_area__layer row justify-content-center">
+                                    
+                                </div>
+                                <div id="storyteller_layer" class="active_area__layer row justify-content-center">
+                                    <div id="storyteller_layer__intro" class="storyteller_layer__story ....layout_dialog">
+                                        <div class="storyteller_layer__layout_name"></div>
+                                    </div>
+                                    <div id="storyteller_layer__sort_1" class="storyteller_layer__story storyteller_layer__layout_lesson">
+                                        <div class="storyteller_layer__layout_name">Sorting 1 Lesson</div>
+                                        <div class="....layout_video"></div>
+                                    </div>
+                                    <div id="storyteller_layer__sort_1" class="storyteller_layer__story storyteller_layer__layout_lesson">
+                                        <div class="storyteller_layer__layout_name">Sorting 2 Lesson</div>
+                                        <div class="....layout_video"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
